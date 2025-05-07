@@ -1,0 +1,131 @@
+<script>
+    function getImageDimensions(path) {
+        const img = new Image();
+        img.src = path;
+        img.onload = () => {
+            const width = img.width;
+            const height = img.height;
+            return {width: width, height: height}
+        };
+
+        return {width: 0, height: 0}
+    }
+
+    let projects = [
+        {
+            path: 'smarthub.png',
+            dimensions: getImageDimensions('smarthub.png'),
+            name: "Smarthub Desktop",
+            stack: "Next.js, Electron, Node.js, Supabase",
+            description: "Real-time recording software to analyze and monitor wheelchair data" +
+                "from Smarthub exclusive devices. Using Bluetooth low energy connections, these devices send" +
+                "gyroscopic and acceleration data to the Node.js back end to be processed and displayed within the" +
+                "Next.js desktop application created using Electron."
+        },
+        {
+            path: 'pledge.png',
+            dimensions: getImageDimensions('pledge.png'),
+            name: "Triangle Pledge Hub",
+            stack: "Next.js, Google APIs",
+            description: "Minimal website to be used as a resource for the Spring 2025 Pledge Class of OSU Triangle." +
+                "With the power of Next.js API endpoints and the Google APIs, this website has a real-time leaderboard" +
+                "for quiz scores and a submission page for an essay."
+        },
+        {
+            path: 'audit.png',
+            dimensions: getImageDimensions('audit.png'),
+            name: "OSU Degree Audit Assistant",
+            stack: "HTML, CSS, SpringBoot, JSoup",
+            description: "Degree audit assistant for OSU students to view a more clear and concise degree audit. " +
+                "Displays current degree completion as well as containers containing remaining requirements to graduate." +
+                "These containers have hyperlinks for course names allowing to quickly schedule and plan your next semester."
+        },
+        {
+            path: 'lockedin.png',
+            dimensions: getImageDimensions('lockedin.png'),
+            name: "LockedIn",
+            stack: "React, Three.js, Python, Firebase, WebGL",
+            description: "Single page application allowing users to view dynamic social networks through LinkedIn connections." +
+                "This provides an in depth visual for finding that connection that could help you discover" +
+                " professional opportunities."
+        },
+        {
+            path: 'fruit.png',
+            dimensions: getImageDimensions('fruit.png'),
+            name: "Fruit Ninja Image Detection",
+            stack: "Python, YOLO, Roboflow",
+            description: "Image detection AI trained using YOLO to detect and slice fruits when playing Fruit Ninja." +
+                "The YOLO model was trained using in game images that had added border boxes using Roboflow for quickness." +
+                "Overall the accuracy of the model resulted in 92% of the fruits being sliced."
+        },
+        {
+            path: 'databased.png',
+            dimensions: getImageDimensions('databased.png'),
+            name: "DataBased",
+            stack: "React, CSS, Flask, Firebase, Firestore",
+            description: "Student database for all materials college related. Within DataBased users have the ability" +
+                "to bookmark, download, and upload files of their choice. The purpose is to allow students to have " +
+                "reliable resources when completing homework or studying for the next exam."
+        },
+    ];
+
+    let selectedIndex = 0;
+
+    function swapFocus(index) {
+        selectedIndex = index % projects.length;
+    }
+
+    function getPositionInQueue(index) {
+        // Calculate position relative to selectedIndex in a circular way
+        const position = (index - selectedIndex + projects.length) % projects.length;
+        return position;
+    }
+
+    function getTransform(index) {
+        const position = getPositionInQueue(index);
+        // Base position: first item centered, others to the right
+        const baseX = 100 + position * 200; // 200px spacing between items
+        return `translateX(${baseX}px)`;
+    }
+
+    function getZIndex(index) {
+        // Always give the highest priority to the currently selected item
+        if (index === selectedIndex) {
+            return 1000; // Much higher value to ensure it's always on top
+        }
+
+        const position = getPositionInQueue(index);
+        // Higher z-index for items closer to the front of the queue
+        return projects.length - position;
+    }
+</script>
+
+<div class="flex flex-row grow ">
+    <div class="flex flex-col justify-center min-w-1/3 max-w-1/3 p-12">
+        <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
+        <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
+        <p class="text-gray-300 text-lg max-w-sm">{projects[selectedIndex].description}</p>
+    </div>
+
+    <div class="relative shrink-0 flex grow overflow-hidden">
+        <div class="relative h-full flex items-center">
+            {#each projects as project, index}
+                <button class="absolute select-none transition-all"
+                        style="transform: {getTransform(index)};
+                        z-index: {getZIndex(index)};
+                        transition: transform 500ms ease-in-out 300ms, opacity 500ms ease-in-out 100ms, z-index 300ms ease-in-out;
+                        opacity: {getPositionInQueue(index) < projects.length/2 ? 1 : 0.5};"
+                        on:click={() => swapFocus(index)}
+                >
+                    <img
+                            src={`./projects/${project.path}`}
+                            alt={project.name}
+                            class="rounded-lg cursor-pointer max-w-2xl"
+                            style="transform: scale({getPositionInQueue(index) === 0 ? 1.2 : (1 - getPositionInQueue(index) * 0.1)});
+                            transition: transform 500ms ease-in-out"
+                    />
+                </button>
+            {/each}
+        </div>
+    </div>
+</div>
