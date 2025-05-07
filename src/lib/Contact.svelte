@@ -1,23 +1,23 @@
 <div class="relative flex flex-col min-h-screen min-w-screen">
     <img src="./contact/m9.png"
-         class="absolute right-0 bottom-40"
+         class="absolute right-0 bottom-40 hidden sm:block  max-w-[20dvw] h-auto object-contain"
          alt="m5"
     />
 
     <img src="./contact/m10.png"
-         class="absolute right-0 top-70"
+         class="absolute right-0 top-70 hidden sm:block  max-w-[20dvw] h-auto object-contain"
          alt="m6"
     />
 
     <img src="./contact/m11.png"
-         class="absolute top-35"
+         class="absolute top-35 hidden sm:block  max-w-[20dvw] h-auto object-contain"
          alt="m7"
     />
 
-    <p class="absolute text-5xl underline decoration-accent-red underline-offset-6 leading-[0.5] p-8">Contact</p>
+    <p class="absolute text-2xl sm:text-4xl md:text-5xl underline decoration-accent-red underline-offset-6 leading-[0.5] p-2 md:p-8">Contact</p>
 
     <div class="flex flex-col grow justify-evenly items-center gap-12">
-        <p class="font-bold text-8xl self-end mr-[6%] w-[30%] leading-[0.7]">Let's work together.</p>
+        <p class="font-bold text-5xl sm:text-6xl md:text-8xl tracking-tight self-end mr-[6%] md:w-[30%] leading-[0.7]">Let's work together.</p>
 
         <form class="flex flex-col gap-4 w-[50%]" on:submit|preventDefault={() => console.log('Form submitted')}>
 
@@ -35,14 +35,14 @@
             </div>
             <button
                     type="submit"
-                    class="bg-accent-red font-bold text-2xl self-center w-1/4 text-white py-2 mt-4 px-4 rounded cursor-pointer"
+                    class="bg-accent-red font-bold text-xl md:text-2xl self-center md:w-1/4 text-white py-2 mt-4 px-4 rounded cursor-pointer"
             >
                 Submit
             </button>
         </form>
     </div>
 
-    <footer class="flex flex-row gap-4 self-center p-8 bg-accent-gray w-full justify-center">
+    <footer class="flex flex-row gap-4 self-center p-2 md:p-8 bg-accent-gray w-full justify-center">
         <p class="text-lg hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">Github</p>
         <p> | </p>
 

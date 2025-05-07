@@ -11,12 +11,13 @@
 
 <main class="max-w-screen overflow-x-hidden">
   <header class="absolute pl-2">
-    <p class="font-bold text-8xl leading-[0.7] ">Kellen Gary</p>
-    <p class="text-4xl pl-1">Columbus, OH</p>
+    <p class="font-bold text-5xl sm:text-7xl md:text-8xl leading-[0.7] ">Kellen Gary</p>
+    <p class="text-2xl sm:text-4xl pl-1">Columbus, OH</p>
   </header>
 
   <Landing/>
   <About/>
   <Projects/>
   <Contact/>
+
 </main>

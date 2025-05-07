@@ -1,119 +1,120 @@
 
 
-<div class="relative flex flex-row min-h-screen min-w-screen">
+<div class="relative flex min-h-screen min-w-screen">
     <img src="./about/m5.png"
-         class="absolute right-0 bottom-40"
+         class="absolute right-0 bottom-40 hidden sm:block  max-w-[20dvw] h-auto object-contain"
          alt="m5"
     />
 
     <img src="./about/m6.png"
-         class="absolute right-0 top-20"
+         class="absolute right-0 top-20 hidden sm:block  max-w-[20dvw] h-auto object-contain"
          alt="m6"
     />
 
     <img src="./about/m7.png"
-         class="absolute top-70"
+         class="absolute top-70 hidden sm:block  max-w-[20dvw] h-auto object-contain"
          alt="m7"
     />
 
-    <p class="absolute text-5xl underline decoration-accent-red underline-offset-6 leading-[0.5] p-8">About</p>
+    <p class="absolute text-2xl sm:text-4xl md:text-5xl underline decoration-accent-red underline-offset-6 leading-[0.5] p-2 md:p-8">About</p>
 
-    <div class="flex justify-around items-center grow">
-        <div class="flex flex-col gap-8 w-[35vw]">
+    <div class="flex flex-col-reverse md:flex-row justify-around items-center grow">
+        <div class="flex flex-col gap-4 sm:gap-8 w-full sm:w-[60dvw] md:w-[35vw]">
 
             <div class="flex flex-col gap-2">
-                <p class="text-2xl font-semibold">Education</p>
-                <div class="flex flex-row items-center gap-4 bg-accent-gray py-4 pl-4 rounded-lg">
+                <p class="text-center sm:text-left text-xl ">Education</p>
+                <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 rounded-lg">
                     <img src="./about/block_o.png"
-                         class=""
+                         class="scale-50 md:scale-100"
                          alt="block_o"
                     />
                     <div>
-                        <p class="font-semibold text-xl">The Ohio State University</p>
-                        <p>Computer and Information Science</p>
+                        <p class="font-semibold text-lg sm:text-2xl">The Ohio State University</p>
+                        <p class="sm:text-lg">Computer and Information Science</p>
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-col gap-2">
-                <p class="text-2xl font-semibold">Current Employment</p>
-                <div class="flex flex-row items-center gap-4 bg-accent-gray py-4 pl-4 rounded-lg">
+                <p class="text-center sm:text-left text-xl ">Current Employment</p>
+                <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 rounded-lg">
                     <img src="./about/BME.png"
-                         class=""
+                         class="scale-50 md:scale-100"
                          alt="BME"
                     />
                     <div>
-                        <p class="font-semibold text-xl">Independent Study, The Ohio State University</p>
-                        <p>Software Engineer</p>
+                        <p class="font-semibold text-lg sm:text-2xl">Independent Study, The Ohio State University</p>
+                        <p class="sm:text-lg">Software Engineer</p>
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-col gap-2">
-                <p class="text-2xl font-semibold">External Affiliations</p>
-                <div class="flex flex-row items-center gap-4 bg-accent-gray py-4 pl-4 rounded-lg">
+                <p class="text-center sm:text-left text-xl ">External Affiliations</p>
+                <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 rounded-lg">
                     <img src="./about/triangle.png"
-                         class=""
+                         class="scale-50 md:scale-100"
                          alt="triangle"
                     />
                     <div>
-                        <p class="font-semibold text-xl">Triangle Fraternity</p>
-                        <p>New Member Educator</p>
+                        <p class="font-semibold text-lg sm:text-2xl">Triangle Fraternity</p>
+                        <p class="sm:text-lg">New Member Educator</p>
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-col gap-2">
-                <p class="text-2xl font-semibold text-center">Skills</p>
-                <div class="flex flex-row items-center gap-4 bg-accent-gray py-4 px-4 rounded-lg">
+                <p class="text-xl text-center">Skills</p>
+                <div class=" grid grid-cols-4 sm:flex sm:flex-row items-center gap-2 p-2 sm:gap-4 bg-accent-gray sm:py-4 sm:px-4 rounded-lg">
                     <img src="./about/react.png"
-                         class="w-1/8"
+                         class="justify-self-center"
                          alt="react"
                     />
                     <img src="./about/next.png"
-                         class="w-1/8"
+                         class="justify-self-center "
                          alt="next"
                     />
                     <img src="./about/Java 1.png"
-                         class="w-1/8"
+                         class="justify-self-center"
                          alt="java"
                     />
                     <img src="./about/JavaScript 1.png"
-                         class="w-1/8"
+                         class="justify-self-center"
                          alt="js"
                     />
                     <img src="./about/python 1.png"
-                         class="w-1/8"
+                         class="justify-self-center"
                          alt="py"
                     />
                     <img src="./about/tailwing.png"
-                         class="w-1/8"
+                         class="justify-self-center"
                          alt="tailwind"
                     />
                     <img src="./about/typescript.png"
-                         class="w-1/8"
+                         class="justify-self-center"
                          alt="ts"
                     />
                     <img src="./about/C 1.png"
-                         class="w-1/8"
+                         class="justify-self-center"
                          alt="see"
                     />
                 </div>
             </div>
         </div>
 
-        <div class="flex">
-            <div class="flex flex-col max-w-[40vw] shrink-0">
-                <p class="font-bold text-8xl leading-[0.5]">Hello,</p>
-                <p class="font-bold text-8xl">I'm Kellen.</p>
-                <p class="max-w-[28vw] text-lg text-gray-300">
-                    I am a 21 year old Software Engineer finishing my Bachelors of Science at The Ohio State University.
-                    I currently have 2 years of developing experience with a desire for exploring new languages and technologies.
-                </p>
-                <a href="./Kellen Gary Resume.pdf" target="_blank">
-                    <span class="font-bold underline decoration-accent-red underline-offset-6 cursor-pointer">View my resume</span>
-                </a>
+        <div class="flex flex-col md:max-w-[50vw] text-center items-center shrink-0">
+            <div class="flex flex-row sm:flex-col grow gap-2">
+                <p class="font-bold text-2xl md:text-5xl sm:text-4xl md:leading-[0.7]">Hello, </p>
+                <p class="font-bold text-2xl md:text-5xl sm:text-4xl md:leading-[0.7]">I'm Kellen.</p>
             </div>
+
+            <p class="px-8 sm:p-0 md:max-w-[28vw] md:text-2xl">
+                I am a 21 year old Software Engineer finishing my Bachelors of Science at The Ohio State University.
+                I currently have 2 years of developing experience with a desire for exploring new languages and technologies.
+            </p>
+            <a href="./Kellen Gary Resume.pdf" target="_blank">
+                <span class="font-bold underline decoration-accent-red underline-offset-6 cursor-pointer">View my resume</span>
+            </a>
         </div>
 
     </div>

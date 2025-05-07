@@ -100,8 +100,8 @@
     }
 </script>
 
-<div class="flex flex-row grow ">
-    <div class="flex flex-col justify-center min-w-1/3 max-w-1/3 p-12">
+<div class="flex flex-col md:flex-row grow ">
+    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-12">
         <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
         <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
         <p class="text-gray-300 text-lg max-w-sm">{projects[selectedIndex].description}</p>
