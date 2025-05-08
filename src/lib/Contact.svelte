@@ -1,11 +1,11 @@
 <div class="relative flex flex-col min-h-screen min-w-screen">
     <img src="./contact/m9.png"
-         class="absolute right-0 bottom-40 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
+         class="absolute  right-0 bottom-40 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
          alt="m5"
     />
 
     <img src="./contact/m10.png"
-         class="absolute right-0 top-70 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
+         class="absolute -z-1 right-0 top-70 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
          alt="m6"
     />
 
