@@ -1,23 +1,23 @@
 <div class="relative flex flex-col min-h-screen min-w-screen">
     <img src="./contact/m9.png"
-         class="absolute right-0 bottom-40 hidden sm:block  max-w-[20dvw] h-auto object-contain"
+         class="absolute right-0 bottom-40 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
          alt="m5"
     />
 
     <img src="./contact/m10.png"
-         class="absolute right-0 top-70 hidden sm:block  max-w-[20dvw] h-auto object-contain"
+         class="absolute right-0 top-70 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
          alt="m6"
     />
 
     <img src="./contact/m11.png"
-         class="absolute top-35 hidden sm:block  max-w-[20dvw] h-auto object-contain"
+         class="absolute top-35 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
          alt="m7"
     />
 
     <p class="absolute text-2xl sm:text-4xl md:text-5xl underline decoration-accent-red underline-offset-6 leading-[0.5] p-2 md:p-8">Contact</p>
 
-    <div class="flex flex-col grow justify-evenly items-center gap-12">
-        <p class="font-bold text-5xl sm:text-6xl md:text-8xl tracking-tight self-end mr-[6%] md:w-[30%] leading-[0.7]">Let's work together.</p>
+    <div class="flex flex-col grow justify-center items-center gap-12">
+        <p class="font-bold text-6xl sm:text-7xl pl-12 md:text-8xl tracking-tight self-end mr-[6%] md:w-[30%] leading-[0.7]">Let's work together.</p>
 
         <form class="flex flex-col gap-4 w-[50%]" on:submit|preventDefault={() => console.log('Form submitted')}>
 
