@@ -152,14 +152,14 @@
 
 </script>
 
-<div class="flex flex-col justify-around md:flex-row grow ">
-    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-8">
+<div class="flex flex-col justify-around md:flex-row grow">
+    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-8 pt-24 sm:pt-0">
         <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
         <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
         <p class="text-gray-300 text-lg max-w-sm">{projects[selectedIndex].description}</p>
     </div>
 
-    <div class="relative shrink-0 flex grow overflow-hidden"
+    <div class="relative shrink-0 grow flex overflow-hidden"
          aria-label="Draggable projects carousel. Swipe left or right to navigate between projects."
          role="region">
         <div class="relative mb-10 scale-50 sm:scale-100 sm:h-full flex items-center">
