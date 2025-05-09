@@ -161,18 +161,18 @@
 
     <div class="relative shrink-0 flex grow overflow-hidden"
          aria-label="Draggable projects carousel. Swipe left or right to navigate between projects."
-         role="region"
-         on:mousedown={handleDragStart}
-         on:mousemove={handleDragMove}
-         on:mouseup={handleDragEnd}
-         on:mouseleave={handleDragEnd}
-         on:touchstart={handleDragStart}
-         on:touchmove={handleDragMove}
-         on:touchend={handleDragEnd}
-         on:touchcancel={handleDragEnd}>
+         role="region">
         <div class="relative mb-10 scale-50 sm:scale-100 sm:h-full flex items-center">
             {#each projects as project, index}
                 <button class="absolute select-none transition-all"
+                        on:mousedown={handleDragStart}
+                        on:mousemove={handleDragMove}
+                        on:mouseup={handleDragEnd}
+                        on:mouseleave={handleDragEnd}
+                        on:touchstart={handleDragStart}
+                        on:touchmove={handleDragMove}
+                        on:touchend={handleDragEnd}
+                        on:touchcancel={handleDragEnd}
                         style="transform: {getTransform(index)};
                         z-index: {getZIndex(index)};
                         transition: {isDragging ? 'none' : 'transform 500ms ease-in-out 300ms, opacity 500ms ease-in-out 100ms, z-index 300ms ease-in-out'};
