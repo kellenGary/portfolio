@@ -1,3 +1,28 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form[name='contact']");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const encodedData = new URLSearchParams(formData).toString();
+
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encodedData,
+            })
+                .then(() => {
+                    alert("Thank you! Your message has been sent.");
+                    form.reset();
+                })
+                .catch((error) => {
+                    alert("Oops! There was a problem sending your message.");
+                });
+        });
+    });
+</script>
 
 <div class="relative flex flex-col min-h-screen min-w-screen">
     <img src="./contact/m9.png"
@@ -22,9 +47,11 @@
 
         <form class="flex flex-col gap-4 w-[50%]"
               name="contact"
-              netlify
               method="POST"
+              data-netlify="true"
+              netlify
         >
+            <input type="hidden" name="form-name" value="contact" />
 
             <div class="flex flex-col gap-2">
                 <label for="name" class="text-lg font-semibold">Name</label>
