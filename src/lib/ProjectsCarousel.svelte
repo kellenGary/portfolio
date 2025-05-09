@@ -145,7 +145,7 @@
     // Update transform function to account for drag
     function getTransform(index) {
         const position = getPositionInQueue(index);
-        const baseX = 100 + position * 200; // 200px spacing between items
+        const baseX = 75 + position * 200; // 200px spacing between items
         const offset = isDragging ? dragOffset : 0;
         return `translateX(${baseX + offset}px)`;
     }
@@ -153,7 +153,7 @@
 </script>
 
 <div class="flex flex-col justify-around md:flex-row grow">
-    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-8 pt-24 sm:pt-0">
+    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-8 pt-24 md:pt-0">
         <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
         <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
         <p class="text-gray-300 text-lg max-w-sm">{projects[selectedIndex].description}</p>
