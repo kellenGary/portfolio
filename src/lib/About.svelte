@@ -18,7 +18,7 @@
 
     <p class="absolute text-2xl sm:text-4xl md:text-5xl underline decoration-accent-red underline-offset-6 leading-[0.5] p-2 md:p-8">About</p>
 
-    <div class="flex flex-col-reverse md:flex-row justify-center gap-12 md:gap-0 md:justify-around items-center grow">
+    <div class="flex flex-col-reverse md:flex-row justify-center gap-12 md:gap-4 md:justify-around items-center grow">
         <div class="flex flex-col gap-4 sm:gap-8 w-full sm:w-[60dvw] md:w-fit">
 
             <div class="flex flex-col gap-2">

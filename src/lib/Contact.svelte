@@ -17,7 +17,7 @@
     <p class="absolute text-2xl sm:text-4xl md:text-5xl underline decoration-accent-red underline-offset-6 leading-[0.5] p-2 md:p-8">Contact</p>
 
     <div class="flex flex-col grow justify-center items-center gap-12">
-        <p class="font-bold text-6xl sm:text-7xl pl-12 md:text-8xl tracking-tight self-end mr-[6%] md:w-[30%] leading-[0.7]">Let's work together.</p>
+        <p class="font-bold text-6xl sm:text-7xl pl-12 md:text-8xl tracking-tight self-end md:mx-auto leading-[0.7]">Let's work together.</p>
 
         <form class="flex flex-col gap-4 w-[50%]" on:submit|preventDefault={() => console.log('Form submitted')}>
 

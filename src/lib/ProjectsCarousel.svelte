@@ -1,4 +1,7 @@
 <script>
+    import { on } from "svelte/events";
+    import { preventDefault } from "svelte/legacy";
+
     function getImageDimensions(path) {
         const img = new Image();
         img.src = path;
@@ -81,51 +84,111 @@
         return position;
     }
 
-    function getTransform(index) {
-        const position = getPositionInQueue(index);
-        // Base position: first item centered, others to the right
-        const baseX = 100 + position * 200; // 200px spacing between items
-        return `translateX(${baseX}px)`;
-    }
-
     function getZIndex(index) {
         // Always give the highest priority to the currently selected item
         if (index === selectedIndex) {
-            return 1000; // Much higher value to ensure it's always on top
+            return 9; // Much higher value to ensure it's always on top
         }
 
         const position = getPositionInQueue(index);
         // Higher z-index for items closer to the front of the queue
         return projects.length - position;
     }
+
+    function nextImage() {
+        selectedIndex = (selectedIndex + 1) % projects.length;
+    }
+
+    function previousImage() {
+        selectedIndex = (selectedIndex - 1 + projects.length) % projects.length;
+    }
+
+    // Add these variables for drag functionality
+    let isDragging = false;
+    let startX = 0;
+    let dragOffset = 0;
+    const DRAG_THRESHOLD = 100; // Minimum drag distance to trigger slide change
+
+    function handleDragStart(event) {
+        isDragging = true;
+        startX = event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+        event.preventDefault();
+    }
+
+    function handleDragMove(event) {
+        if (!isDragging) return;
+
+        const currentX = event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+        dragOffset = currentX - startX;
+        event.preventDefault();
+    }
+
+    function handleDragEnd() {
+        if (!isDragging) return;
+
+        // If dragged far enough, change slide
+        if (Math.abs(dragOffset) > DRAG_THRESHOLD) {
+            if (dragOffset > 0) {
+                // Dragged right, go to previous
+                previousImage();
+            } else {
+                // Dragged left, go to next
+                nextImage();
+            }
+        }
+
+        // Reset drag state
+        isDragging = false;
+        dragOffset = 0;
+    }
+
+    // Update transform function to account for drag
+    function getTransform(index) {
+        const position = getPositionInQueue(index);
+        const baseX = 100 + position * 200; // 200px spacing between items
+        const offset = isDragging ? dragOffset : 0;
+        return `translateX(${baseX + offset}px)`;
+    }
+
 </script>
 
-<div class="flex flex-col md:flex-row grow ">
-    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-12">
+<div class="flex flex-col justify-around md:flex-row grow ">
+    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-8">
         <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
         <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
         <p class="text-gray-300 text-lg max-w-sm">{projects[selectedIndex].description}</p>
     </div>
 
-    <div class="relative shrink-0 flex grow overflow-hidden">
-        <div class="relative h-full flex items-center">
+    <div class="relative shrink-0 flex grow overflow-hidden"
+         aria-label="Draggable projects carousel. Swipe left or right to navigate between projects."
+         role="region"
+         on:mousedown={handleDragStart}
+         on:mousemove={handleDragMove}
+         on:mouseup={handleDragEnd}
+         on:mouseleave={handleDragEnd}
+         on:touchstart={handleDragStart}
+         on:touchmove={handleDragMove}
+         on:touchend={handleDragEnd}
+         on:touchcancel={handleDragEnd}>
+        <div class="relative mb-10 scale-50 sm:scale-100 sm:h-full flex items-center">
             {#each projects as project, index}
                 <button class="absolute select-none transition-all"
                         style="transform: {getTransform(index)};
                         z-index: {getZIndex(index)};
-                        transition: transform 500ms ease-in-out 300ms, opacity 500ms ease-in-out 100ms, z-index 300ms ease-in-out;
+                        transition: {isDragging ? 'none' : 'transform 500ms ease-in-out 300ms, opacity 500ms ease-in-out 100ms, z-index 300ms ease-in-out'};
                         opacity: {getPositionInQueue(index) < projects.length/2 ? 1 : 0.5};"
-                        on:click={() => swapFocus(index)}
+                        on:click={() => !isDragging && swapFocus(index)}
                 >
                     <img
                             src={`./projects/${project.path}`}
                             alt={project.name}
                             class="rounded-lg cursor-pointer max-w-2xl"
                             style="transform: scale({getPositionInQueue(index) === 0 ? 1.2 : (1 - getPositionInQueue(index) * 0.1)});
-                            transition: transform 500ms ease-in-out"
+                            transition: {isDragging ? 'none' : 'transform 500ms ease-in-out'}"
                     />
                 </button>
             {/each}
+            <!-- Removed the navigation buttons -->
         </div>
     </div>
 </div>
