@@ -10,7 +10,7 @@ export default defineConfig({
     allowedHosts: ["kellengary.com", "app.kellengary.com"]
   },
   build: {
-    outDir: 'dist',
+    outDir: 'build',
     emptyOutDir: true
   }
 })
