@@ -1,76 +1,91 @@
 <script>
-    import { on } from "svelte/events";
-    import { preventDefault } from "svelte/legacy";
+    import { browser } from '$app/environment';
+    import { onMount } from 'svelte';
 
-    function getImageDimensions(path) {
-        const img = new Image();
-        img.src = path;
-        img.onload = () => {
-            const width = img.width;
-            const height = img.height;
-            return {width: width, height: height}
-        };
+    // Default dimensions for all project
+    const DEFAULT_DIMENSIONS = { width: 800, height: 450 };
 
-        return {width: 0, height: 0}
-    }
-
+    // Initialize all project with default dimensions
     let projects = [
         {
             path: 'smarthub.png',
-            dimensions: getImageDimensions('smarthub.png'),
+            dimensions: DEFAULT_DIMENSIONS,
             name: "Smarthub Desktop",
+            link: 'smarthub',
             stack: "Next.js, Electron, Node.js, Supabase",
-            description: "Real-time recording software to analyze and monitor wheelchair data" +
-                "from Smarthub exclusive devices. Using Bluetooth low energy connections, these devices send" +
-                "gyroscopic and acceleration data to the Node.js back end to be processed and displayed within the" +
+            description: "Real-time recording software to analyze and monitor wheelchair data " +
+                "from Smarthub exclusive devices. Using Bluetooth low energy connections, these devices send " +
+                "gyroscopic and acceleration data to the Node.js back end to be processed and displayed within the " +
                 "Next.js desktop application created using Electron."
         },
         {
             path: 'pledge.png',
-            dimensions: getImageDimensions('pledge.png'),
+            dimensions: DEFAULT_DIMENSIONS,
             name: "Triangle Pledge Hub",
+            link: "triangle-pledge-hub",
             stack: "Next.js, Google APIs",
-            description: "Minimal website to be used as a resource for the Spring 2025 Pledge Class of OSU Triangle." +
-                "With the power of Next.js API endpoints and the Google APIs, this website has a real-time leaderboard" +
-                "for quiz scores and a submission page for an essay."
+            description: "Minimal website to be used as a resource for the Spring 2025 Pledge Class of OSU Triangle. " +
+                "With the power of Next.js API endpoints and the Google APIs, this website has a real-time leaderboard " +
+                "for quiz scores and a submission page for an essay. "
         },
         {
             path: 'audit.png',
-            dimensions: getImageDimensions('audit.png'),
+            dimensions: DEFAULT_DIMENSIONS,
             name: "OSU Degree Audit Assistant",
+            link: "osu-degree-audit",
             stack: "HTML, CSS, SpringBoot, JSoup",
             description: "Degree audit assistant for OSU students to view a more clear and concise degree audit. " +
-                "Displays current degree completion as well as containers containing remaining requirements to graduate." +
-                "These containers have hyperlinks for course names allowing to quickly schedule and plan your next semester."
+                "Displays current degree completion as well as containers containing remaining requirements to graduate. " +
+                "These containers have hyperlinks for course names allowing to quickly schedule and plan your next semester. "
         },
         {
             path: 'lockedin.png',
-            dimensions: getImageDimensions('lockedin.png'),
+            dimensions: DEFAULT_DIMENSIONS,
             name: "LockedIn",
+            link: "lockedin",
             stack: "React, Three.js, Python, Firebase, WebGL",
-            description: "Single page application allowing users to view dynamic social networks through LinkedIn connections." +
-                "This provides an in depth visual for finding that connection that could help you discover" +
-                " professional opportunities."
+            description: "Single page application allowing users to view dynamic social networks through LinkedIn connections. " +
+                "This provides an in depth visual for finding that connection that could help you discover " +
+                " professional opportunities. "
         },
         {
             path: 'fruit.png',
-            dimensions: getImageDimensions('fruit.png'),
+            dimensions: DEFAULT_DIMENSIONS,
             name: "Fruit Ninja Image Detection",
+            link: "fruit-ninja",
             stack: "Python, YOLO, Roboflow",
-            description: "Image detection AI trained using YOLO to detect and slice fruits when playing Fruit Ninja." +
-                "The YOLO model was trained using in game images that had added border boxes using Roboflow for quickness." +
-                "Overall the accuracy of the model resulted in 92% of the fruits being sliced."
+            description: "Image detection AI trained using YOLO to detect and slice fruits when playing Fruit Ninja. " +
+                "The YOLO model was trained using in game images that had added border boxes using Roboflow for quickness. " +
+                "Overall the accuracy of the model resulted in 92% of the fruits being sliced. "
         },
         {
             path: 'databased.png',
-            dimensions: getImageDimensions('databased.png'),
+            dimensions: DEFAULT_DIMENSIONS,
             name: "DataBased",
+            link: 'databased',
             stack: "React, CSS, Flask, Firebase, Firestore",
-            description: "Student database for all materials college related. Within DataBased users have the ability" +
+            description: "Student database for all materials college related. Within DataBased users have the ability " +
                 "to bookmark, download, and upload files of their choice. The purpose is to allow students to have " +
-                "reliable resources when completing homework or studying for the next exam."
+                "reliable resources when completing homework or studying for the next exam. "
         },
     ];
+
+    // Load actual image dimensions after component mounts (browser-only)
+    onMount(() => {
+        if (browser) {
+            projects.forEach((project, index) => {
+                const img = new Image();
+                img.onload = () => {
+                    projects[index].dimensions = {
+                        width: img.width,
+                        height: img.height
+                    };
+                    projects = projects; // Trigger reactivity update
+                };
+                img.src = `/projects/${project.path}`;
+            });
+        }
+    });
 
     let selectedIndex = 0;
 
@@ -156,7 +171,10 @@
     <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-8 pt-24 md:pt-0">
         <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
         <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
-        <p class="text-gray-300 text-lg max-w-sm">{projects[selectedIndex].description}</p>
+        <p class="text-xl">{projects[selectedIndex].description}</p>
+        <a href='/project/{projects[selectedIndex].link}'>
+            <span class="font-bold underline hover:animate-pulse decoration-accent-red underline-offset-6 cursor-pointer">Explore</span>
+        </a>
     </div>
 
     <div class="relative shrink-0 grow flex overflow-hidden"
@@ -180,7 +198,7 @@
                         on:click={() => !isDragging && swapFocus(index)}
                 >
                     <img
-                            src={`./projects/${project.path}`}
+                            src={`/projects/${project.path}`}
                             alt={project.name}
                             class="rounded-lg cursor-pointer max-w-2xl"
                             style="transform: scale({getPositionInQueue(index) === 0 ? 1.2 : (1 - getPositionInQueue(index) * 0.1)});
@@ -188,7 +206,7 @@
                     />
                 </button>
             {/each}
-            <!-- Removed the navigation buttons -->
         </div>
     </div>
 </div>
+

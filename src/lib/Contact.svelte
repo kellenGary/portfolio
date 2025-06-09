@@ -1,41 +1,46 @@
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    import { onMount } from 'svelte';
+    import { browser } from '$app/environment';
+
+    onMount(() => {
         const form = document.querySelector("form[name='contact']");
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
+        if (form) {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
 
-            const formData = new FormData(form);
-            const encodedData = new URLSearchParams(formData).toString();
+                const formData = new FormData(form);
+                const encodedData = new URLSearchParams(formData).toString();
 
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encodedData,
-            })
-                .then(() => {
-                    alert("Thank you! Your message has been sent.");
-                    form.reset();
+                fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: encodedData,
                 })
-                .catch((error) => {
-                    alert("Oops! There was a problem sending your message.");
-                });
-        });
+                    .then(() => {
+                        alert("Thank you! Your message has been sent.");
+                        form.reset();
+                    })
+                    .catch((error) => {
+                        alert("Oops! There was a problem sending your message.");
+                    });
+            });
+        }
     });
 </script>
 
-<div class="relative flex flex-col min-h-screen min-w-screen">
-    <img src="./contact/m9.png"
+<div class="relative flex flex-col min-h-screen min-w-screen" id="contact">
+    <img src="/contact/m9.png"
          class="absolute  right-0 bottom-40 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
          alt="m5"
     />
 
-    <img src="./contact/m10.png"
+    <img src="/contact/m10.png"
          class="absolute -z-1 right-0 top-70 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
          alt="m6"
     />
 
-    <img src="./contact/m11.png"
+    <img src="/contact/m11.png"
          class="absolute top-35 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
          alt="m7"
     />
@@ -48,8 +53,7 @@
         <form class="flex flex-col gap-4 w-[50%]"
               name="contact"
               method="POST"
-              data-netlify="true"
-              netlify
+              action="https://formspree.io/f/xeogzgda"
         >
             <input type="hidden" name="form-name" value="contact" />
 
@@ -75,13 +79,19 @@
     </div>
 
     <footer class="flex flex-row gap-4 self-center p-2 md:p-8 bg-accent-gray w-full justify-center">
-        <p class="text-lg hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">Github</p>
+        <a href="https://github.com/kellenGary" target="_blank">
+            <p class="text-lg hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">Github</p>
+        </a>
+
         <p> | </p>
 
         <button on:click={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span class="text-lg hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">Return to top</span>
         </button>
         <p> |</p>
-        <p class="text-lg hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">LinkedIn</p>
+        <a href="https://linkedin.com/in/kellen-Gary" target="_blank">
+            <p class="text-lg hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">LinkedIn</p>
+        </a>
     </footer>
 </div>
+

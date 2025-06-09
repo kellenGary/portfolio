@@ -1,8 +1,16 @@
 import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { sveltekit } from '@sveltejs/kit/vite'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [svelte(), tailwindcss()],
+  plugins: [sveltekit(), tailwindcss()],
+  server: {
+    host: '0.0.0.0',
+    allowedHosts: ["kellengary.com", "app.kellengary.com"]
+  },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true
+  }
 })
