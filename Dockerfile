@@ -2,7 +2,8 @@
 FROM node:18 AS builder
 WORKDIR /app
 COPY . .
-RUN npm install
+RUN npm ci
+RUN npx svelte-kit sync
 RUN npm run build
 
 # Stage 2: Use NGINX to serve the built app
