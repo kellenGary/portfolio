@@ -42,5 +42,5 @@ jobs:
         run: kubectl apply -f deployment/ --validate=false
 
       - name: Restart Deployment
-        run: kubectl rollout restart deployment kellen-gary-portfolio
+        run: kubectl rollout restart deployment portfolio
 
