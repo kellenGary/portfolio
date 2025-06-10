@@ -39,8 +39,8 @@ jobs:
           chmod 600 $HOME/.kube/config
 
       - name: Deploy to Kubernetes
-        run: kubectl apply -f deployment/ --validate=false
+        run: kubectl apply -f infra/ --validate=false
 
       - name: Restart Deployment
-        run: kubectl rollout restart deployment portfolio
+        run: kubectl rollout restart infra portfolio
 
