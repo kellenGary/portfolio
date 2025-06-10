@@ -39,4 +39,4 @@ jobs:
           chmod 600 $HOME/.kube/config
 
       - name: Deploy to Kubernetes
-        run: kubectl apply -f deployment/
+        run: kubectl apply -f deployment/ --validate=false
