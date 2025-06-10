@@ -25,7 +25,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/portfolio:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/kellen-gary-portfolio:latest
 
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
@@ -40,3 +40,7 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: kubectl apply -f deployment/ --validate=false
+
+      - name: Restart Deployment
+        run: kubectl rollout restart deployment kellen-gary-portfolio
+
