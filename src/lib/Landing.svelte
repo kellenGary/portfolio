@@ -2,22 +2,22 @@
 </script>
 
 <img src="/landing/m1.png"
-     class="absolute bottom-20 w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
+     class="absolute bottom-20 w-auto max-h-[20vh] max-w-[20vw] object-contain transform"
      alt="m1"
 />
 
 <img src="/landing/m2.png"
-     class="absolute right-0 top-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
+     class="absolute right-0 top-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform"
      alt="m2"
 />
 
 <img src="/landing/m3.png"
-     class="absolute hidden sm:block right-0 bottom-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
+     class="absolute hidden sm:block right-0 bottom-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform"
      alt="m3"
 />
 
 <img src="/landing/m4.png"
-     class="absolute hidden sm:block top-0 right-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
+     class="absolute hidden sm:block top-0 right-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform"
      alt="m4"
 />
 

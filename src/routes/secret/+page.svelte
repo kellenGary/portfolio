@@ -52,7 +52,6 @@
                 <img src="/photobooth/altruist_3.jpeg" alt="Altruist artwork 3" class="w-full h-auto" />
                 <img src="/photobooth/whatcha_mean.jpeg" alt="Whatcha Mean artwork" class="w-full h-auto" />
                 <img src="/photobooth/drawing_1.jpeg" alt="Fan artwork 1" class="w-full grow h-auto object-cover" />
-
             </div>
             <div class="flex flex-col gap-1 sm:gap-4 grow h-full">
                 <video src="/photobooth/show_video_1.mov" autoplay loop muted class="w-full h-auto"></video>

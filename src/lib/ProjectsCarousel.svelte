@@ -172,9 +172,9 @@
         <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
         <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
         <p class="text-xl">{projects[selectedIndex].description}</p>
-        <a href='/project/{projects[selectedIndex].link}'>
-            <span class="font-bold underline hover:animate-pulse decoration-accent-red underline-offset-6 cursor-pointer">Explore</span>
-        </a>
+<!--        <a href='/project/{projects[selectedIndex].link}'>-->
+<!--            <span class="font-bold underline hover:animate-pulse decoration-accent-red underline-offset-6 cursor-pointer">Explore</span>-->
+<!--        </a>-->
     </div>
 
     <div class="relative shrink-0 grow flex overflow-hidden"
