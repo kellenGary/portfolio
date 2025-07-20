@@ -5,6 +5,66 @@
   --color-border-gray: #353535;
   --color-accent-gray: #141414;
   --color-accent-red: #BA0C2F;
+  
+  --animate-slide-from-right: slide-from-right 0.5s ease-in-out;
+  --animate-slide-from-left: slide-from-left 0.5s ease-in-out;
+  --animate-slide-from-top: slide-from-top 0.5s ease-in-out;
+  --animate-fade-in: fade-in 1s ease-in-out;
+  --animate-fade-in-delayed: fade-in-delayed 1.5s ease-in-out forwards;
+  
+  @keyframes slide-from-right {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+  }
+
+  @keyframes slide-from-left {
+      from {
+      transform: translateX(-100%);
+      opacity: 0;
+      }
+      to {
+      transform: translateX(0);
+      opacity: 1;
+      }
+  }
+
+  @keyframes slide-from-top {
+      from {
+      transform: translateY(-100%);
+      opacity: 0;
+      }
+      to {
+      transform: translateY(0);
+      opacity: 1;
+      }
+  }
+
+  @keyframes fade-in {
+      from {
+      opacity: 0;
+      }
+      to {
+      opacity: 1;
+      }
+  }
+
+  @keyframes fade-in-delayed {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 :root {

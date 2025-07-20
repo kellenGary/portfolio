@@ -1,28 +1,27 @@
 <script>
 </script>
-
 <img src="/landing/m1.png"
-     class="absolute bottom-20 w-auto max-h-[20vh] max-w-[20vw] object-contain transform"
+     class="absolute bottom-20 w-auto max-h-[20vh] max-w-[20vw] object-contain transform animate-slide-from-left"
      alt="m1"
 />
 
 <img src="/landing/m2.png"
-     class="absolute right-0 top-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform"
+     class="absolute right-0 top-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform animate-slide-from-right"
      alt="m2"
 />
 
 <img src="/landing/m3.png"
-     class="absolute hidden sm:block right-0 bottom-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform"
+     class="absolute hidden sm:block right-0 bottom-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform animate-slide-from-right"
      alt="m3"
 />
 
 <img src="/landing/m4.png"
-     class="absolute hidden sm:block top-0 right-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform"
+     class="absolute hidden sm:block top-0 right-40 w-auto max-h-[20vh] max-w-[20vw] object-contain transform animate-slide-from-top"
      alt="m4"
 />
 
-<div class="flex flex-col justify-center items-center gap-8 min-h-screen min-w-screen p-4 grow">
-    <div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="flex flex-col justify-center items-center gap-8 min-h-screen min-w-screen p-4 grow ">
+    <div class="flex flex-col md:flex-row gap-8 items-center animate-fade-in">
         <a href="/secret">
             <img src="/landing/headshot.jpeg"
                  class="rounded-full h-36 md:h-[20dvh]"
@@ -35,7 +34,7 @@
         </div>
     </div>
 
-    <div class="flex flex-row gap-12 text-xl md:text-4xl">
+    <div class="flex flex-row gap-12 text-xl md:text-4xl animate-fade-in-delayed">
         <button on:click={() => document.getElementById('about').scrollIntoView({behavior: 'smooth'})}>
             <span class="hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">
                 About
