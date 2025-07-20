@@ -11,7 +11,7 @@
             path: 'smarthub.png',
             dimensions: DEFAULT_DIMENSIONS,
             name: "Smarthub Desktop",
-            link: 'smarthub',
+            link: 'https://github.com/kellenGary/smarthub-desktop',
             stack: "Next.js, Electron, Node.js, Supabase",
             description: "Real-time recording software to analyze and monitor wheelchair data " +
                 "from Smarthub exclusive devices. Using Bluetooth low energy connections, these devices send " +
@@ -22,7 +22,7 @@
             path: 'pledge.png',
             dimensions: DEFAULT_DIMENSIONS,
             name: "Triangle Pledge Hub",
-            link: "triangle-pledge-hub",
+            link: "https://github.com/kellenGary/triangle-candidate-website",
             stack: "Next.js, Google APIs",
             description: "Minimal website to be used as a resource for the Spring 2025 Pledge Class of OSU Triangle. " +
                 "With the power of Next.js API endpoints and the Google APIs, this website has a real-time leaderboard " +
@@ -31,7 +31,7 @@
         {
             path: 'audit.png',
             dimensions: DEFAULT_DIMENSIONS,
-            name: "OSU Degree Audit Assistant",
+            name: "https://github.com/kellenGary/OSU-Degree-Audit-Assistant",
             link: "osu-degree-audit",
             stack: "HTML, CSS, SpringBoot, JSoup",
             description: "Degree audit assistant for OSU students to view a more clear and concise degree audit. " +
@@ -42,7 +42,7 @@
             path: 'lockedin.png',
             dimensions: DEFAULT_DIMENSIONS,
             name: "LockedIn",
-            link: "lockedin",
+            link: "https://github.com/StevenEgnaczyk/LockedIn",
             stack: "React, Three.js, Python, Firebase, WebGL",
             description: "Single page application allowing users to view dynamic social networks through LinkedIn connections. " +
                 "This provides an in depth visual for finding that connection that could help you discover " +
@@ -52,7 +52,7 @@
             path: 'fruit.png',
             dimensions: DEFAULT_DIMENSIONS,
             name: "Fruit Ninja Image Detection",
-            link: "fruit-ninja",
+            link: "https://github.com/kellenGary/Fruit-Ninja-YOLO-Slicer",
             stack: "Python, YOLO, Roboflow",
             description: "Image detection AI trained using YOLO to detect and slice fruits when playing Fruit Ninja. " +
                 "The YOLO model was trained using in game images that had added border boxes using Roboflow for quickness. " +
@@ -62,7 +62,7 @@
             path: 'databased.png',
             dimensions: DEFAULT_DIMENSIONS,
             name: "DataBased",
-            link: 'databased',
+            link: 'https://github.com/StevenEgnaczyk/DatabaseD',
             stack: "React, CSS, Flask, Firebase, Firestore",
             description: "Student database for all materials college related. Within DataBased users have the ability " +
                 "to bookmark, download, and upload files of their choice. The purpose is to allow students to have " +
@@ -122,7 +122,7 @@
     let isDragging = false;
     let startX = 0;
     let dragOffset = 0;
-    const DRAG_THRESHOLD = 100; // Minimum drag distance to trigger slide change
+    const DRAG_THRESHOLD = 2; // Minimum drag distance to trigger slide change
 
     function handleDragStart(event) {
         isDragging = true;
@@ -172,9 +172,9 @@
         <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
         <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
         <p class="text-xl">{projects[selectedIndex].description}</p>
-<!--        <a href='/project/{projects[selectedIndex].link}'>-->
-<!--            <span class="font-bold underline hover:animate-pulse decoration-accent-red underline-offset-6 cursor-pointer">Explore</span>-->
-<!--        </a>-->
+        <a href='{projects[selectedIndex].link}'>
+            <span class="font-bold underline hover:animate-pulse decoration-accent-red underline-offset-6 cursor-pointer">Explore</span>
+        </a>
     </div>
 
     <div class="relative shrink-0 grow flex overflow-hidden"

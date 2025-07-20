@@ -1,33 +1,3 @@
-<script>
-    import { onMount } from 'svelte';
-    import { browser } from '$app/environment';
-
-    onMount(() => {
-        const form = document.querySelector("form[name='contact']");
-
-        if (form) {
-            form.addEventListener("submit", function (e) {
-                e.preventDefault();
-
-                const formData = new FormData(form);
-                const encodedData = new URLSearchParams(formData).toString();
-
-                fetch("/", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: encodedData,
-                })
-                    .then(() => {
-                        alert("Thank you! Your message has been sent.");
-                        form.reset();
-                    })
-                    .catch((error) => {
-                        alert("Oops! There was a problem sending your message.");
-                    });
-            });
-        }
-    });
-</script>
 
 <div class="relative flex flex-col min-h-screen min-w-screen" id="contact">
     <img src="/contact/m9.png"
@@ -55,8 +25,7 @@
               method="POST"
               action="https://formspree.io/f/xeogzgda"
         >
-            <input type="hidden" name="form-name" value="contact" />
-
+            <input type="text" name="_gotcha" style="display:none" />
             <div class="flex flex-col gap-2">
                 <label for="name" class="text-lg font-semibold">Name</label>
                 <input id="name" name="name" class="border border-border-gray bg-accent-gray p-2 rounded" placeholder="Enter your name" required />
