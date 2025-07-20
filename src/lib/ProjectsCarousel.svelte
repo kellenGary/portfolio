@@ -31,8 +31,8 @@
         {
             path: 'audit.png',
             dimensions: DEFAULT_DIMENSIONS,
-            name: "https://github.com/kellenGary/OSU-Degree-Audit-Assistant",
-            link: "osu-degree-audit",
+            name: "Degree Audit Assistant",
+            link: "https://github.com/kellenGary/OSU-Degree-Audit-Assistant",
             stack: "HTML, CSS, SpringBoot, JSoup",
             description: "Degree audit assistant for OSU students to view a more clear and concise degree audit. " +
                 "Displays current degree completion as well as containers containing remaining requirements to graduate. " +
