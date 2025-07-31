@@ -9,7 +9,7 @@ import Projects from "../lib/Projects.svelte";
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;700&display=swap" rel="stylesheet">
 </svelte:head>
 
-<main class="max-w-screen overflow-x-hidden ">
+<main class="max-w-screen overflow-x-hidden">
     <header class="absolute pl-2 animate-slide-from-left">
         <p class="font-bold text-5xl sm:text-7xl md:text-8xl leading-[0.7] ">Kellen Gary</p>
         <p class="text-2xl sm:text-4xl pl-1">Columbus, OH</p>

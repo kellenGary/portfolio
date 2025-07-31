@@ -1,3 +1,4 @@
+
 <div class="relative flex min-h-screen min-w-screen" id="about">
     <img src="/about/m5.png"
          class="absolute right-0 bottom-40 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
@@ -27,7 +28,7 @@
                     />
                     <div>
                         <p class="font-semibold text-lg sm:text-2xl">The Ohio State University</p>
-                        <p class="sm:text-lg">Computer and Information Science</p>
+                        <p class="text-xl">Computer and Information Science</p>
                     </div>
                 </div>
             </div>
@@ -40,7 +41,7 @@
                     />
                     <div>
                         <p class="font-semibold text-lg sm:text-2xl">Independent Study, The Ohio State University</p>
-                        <p class="sm:text-lg">Software Engineer</p>
+                        <p class="text-xl">Software Engineer</p>
                     </div>
                 </div>
             </div>
@@ -53,7 +54,7 @@
                     />
                     <div>
                         <p class="font-semibold text-lg sm:text-2xl">Triangle Fraternity</p>
-                        <p class="sm:text-lg">New Member Educator</p>
+                        <p class="text-xl">New Member Educator</p>
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@
                 <p class="font-bold text-2xl md:text-5xl sm:text-4xl md:leading-[0.7]">I'm Kellen.</p>
             </div>
 
-            <p class=" sm:p-0 md:max-w-[28vw] md:text-2xl">
+            <p class="text-xl sm:p-0 md:max-w-[28vw] md:text-2xl">
                 I am a 21 year old Software Engineer finishing my Bachelors of Science at The Ohio State University.
                 I currently have 2 years of developing experience with a desire for exploring new languages and technologies.
             </p>
