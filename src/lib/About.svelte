@@ -41,7 +41,7 @@
                     />
                     <div>
                         <p class="font-semibold text-lg sm:text-2xl">Independent Study, The Ohio State University</p>
-                        <p class="text-xl">Software Engineer</p>
+                        <p class="text-xl">Biomedical Software Engineer</p>
                     </div>
                 </div>
             </div>

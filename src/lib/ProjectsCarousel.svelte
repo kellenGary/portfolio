@@ -12,7 +12,7 @@
             dimensions: DEFAULT_DIMENSIONS,
             name: "Smarthub Desktop",
             link: 'https://github.com/kellenGary/smarthub-desktop',
-            stack: "Next.js, Electron, Node.js, Supabase",
+            stack: "Next.js, Electron, Node.js, Python, FastAPI, Supabase",
             description: "Real-time recording software to analyze and monitor wheelchair data " +
                 "from Smarthub exclusive devices. Using Bluetooth low energy connections, these devices send " +
                 "gyroscopic and acceleration data to the Node.js back end to be processed and displayed within the " +
