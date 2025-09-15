@@ -6,11 +6,11 @@
   --color-accent-gray: #141414;
   --color-accent-red: #BA0C2F;
   
-  --animate-slide-from-right: slide-from-right 0.5s ease-in-out;
-  --animate-slide-from-left: slide-from-left 0.5s ease-in-out;
-  --animate-slide-from-top: slide-from-top 0.5s ease-in-out;
+  --animate-slide-from-right: slide-from-right 1s ease-in-out;
+  --animate-slide-from-left: slide-from-left 1s ease-in-out;
+  --animate-slide-from-top: slide-from-top 1s ease-in-out;
   --animate-fade-in: fade-in 1s ease-in-out;
-  --animate-fade-in-delayed: fade-in-delayed 1.5s ease-in-out forwards;
+  --animate-fade-in-delayed: fade-in-delayed 2s ease-in-out forwards;
   
   @keyframes slide-from-right {
       from {
@@ -75,10 +75,51 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #0A0A0A;
-  accent-red: #BA0C2F;
+  --accent-red: #BA0C2F;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Reveal-on-scroll utility using IntersectionObserver action */
+
+/* When not in-view, also force position: static to prevent absolutely positioned elements from blocking scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 600ms ease-out var(--reveal-delay, 0ms),
+    transform 600ms ease-out var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+  pointer-events: none;
+  user-select: none;
+  position: static !important;
+}
+
+/* Restore intended positioning when in-view */
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  user-select: auto;
+  position: unset !important;
+}
+
+/* Optional variants for direction */
+.reveal-x {
+  opacity: 0;
+  transform: translateX(16px);
+  transition:
+    opacity 600ms ease-out var(--reveal-delay, 0ms),
+    transform 600ms ease-out var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-x.in-view { transform: none; opacity: 1; }
+
+.reveal-left { transform: translateX(-16px); }
+.reveal-right { transform: translateX(16px); }
+.reveal-up { transform: translateY(16px); }
+.reveal-down { transform: translateY(-16px); }
