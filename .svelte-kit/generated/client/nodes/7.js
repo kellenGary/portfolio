@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/project/osu-degree-audit/+page.svelte";

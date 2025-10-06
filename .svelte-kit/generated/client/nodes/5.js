@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/project/fruit-ninja/+page.svelte";
