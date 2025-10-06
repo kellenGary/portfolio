@@ -61,7 +61,7 @@
       "_index.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.3glSvqFO.css"
+      "_app/immutable/assets/_layout.qZEE_iZ2.css"
     ]
   },
   "src/routes/+page.svelte": {
@@ -71,6 +71,9 @@
     "isEntry": true,
     "imports": [
       "_index.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.DdpUbjes.css"
     ]
   },
   "src/routes/project/+layout.svelte": {

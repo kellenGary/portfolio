@@ -34,10 +34,16 @@
         </div>
     </div>
 
-    <div class="flex flex-row gap-12 text-xl md:text-4xl animate-fade-in-delayed">
+    <div class="flex flex-row gap-8 md:gap-12 text-xl md:text-4xl animate-fade-in-delayed">
         <button on:click={() => document.getElementById('about').scrollIntoView({behavior: 'smooth'})}>
             <span class="hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">
                 About
+            </span>
+        </button>
+
+        <button on:click={() => document.getElementById('skills').scrollIntoView({behavior: 'smooth'})}>
+            <span class="hover:underline hover:decoration-accent-red hover:underline-offset-6 cursor-pointer">
+                Skills
             </span>
         </button>
 
