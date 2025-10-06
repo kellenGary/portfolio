@@ -1,6 +1,7 @@
 <script>
 import Landing from "../lib/Landing.svelte";
 import About from "../lib/About.svelte";
+import Skills from "../lib/Skills.svelte";
 import Contact from "../lib/Contact.svelte";
 import Projects from "../lib/Projects.svelte";
 import { inView } from '$lib/actions/inView.js';
@@ -19,6 +20,7 @@ const reveal = { threshold: 0.1, className: 'in-view' };
 
     <section id="landing"><Landing/></section>
     <section id="about"><About/></section>
+    <section id="skills"><Skills/></section>
     <section id="projects" class="flex min-h-screen flex-col"><Projects/></section>
     <section id="contact"><Contact/></section>
 </main>
