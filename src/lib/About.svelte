@@ -1,4 +1,9 @@
 
+<script>
+    import { inView } from '$lib/actions/inView.js';
+    const reveal = { threshold: 0.15, className: 'in-view' };
+</script>
+
 <div class="relative flex min-h-screen min-w-screen" id="about">
     <img src="/about/m5.png"
          class="absolute right-0 bottom-40 hidden sm:block w-auto max-h-[20vh] max-w-[20vw] object-contain transform scale-[0.85] sm:scale-90 md:scale-100"
@@ -18,10 +23,10 @@
     <p class="absolute text-2xl sm:text-4xl md:text-5xl underline decoration-accent-red underline-offset-6 leading-[0.5] p-2 md:p-8">About</p>
 
     <div class="flex flex-col-reverse md:flex-row justify-center gap-12 md:gap-4 md:justify-around items-center grow">
-        <div class="flex flex-col gap-4 sm:gap-8 w-full sm:w-[60dvw] md:w-fit">
+    <div class="flex flex-col gap-4 sm:gap-8 w-full sm:w-[60dvw] md:w-fit">
             <div class="flex flex-col gap-2">
-                <p class="text-center sm:text-left text-xl sm:text-2xl">Education</p>
-                <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 sm:rounded-lg">
+        <p class="text-center sm:text-left text-xl sm:text-2xl reveal" use:inView={reveal}>Education</p>
+        <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 sm:rounded-lg reveal" use:inView={reveal} style="--reveal-delay: 80ms;">
                     <img src="/about/block_o.png"
                          class="scale-50 md:scale-100"
                          alt="block_o"
@@ -33,8 +38,8 @@
                 </div>
             </div>
             <div class="flex flex-col gap-2">
-                <p class="text-center sm:text-left text-xl sm:text-2xl">Current Employment</p>
-                <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 sm:rounded-lg pr-8">
+                <p class="text-center sm:text-left text-xl sm:text-2xl reveal" use:inView={reveal} style="--reveal-delay: 120ms;">Current Employment</p>
+                <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 sm:rounded-lg pr-8 reveal" use:inView={reveal} style="--reveal-delay: 200ms;">
                     <img src="/about/BME.png"
                          class="scale-50 md:scale-100"
                          alt="BME"
@@ -46,8 +51,8 @@
                 </div>
             </div>
             <div class="flex flex-col gap-2">
-                <p class="text-center sm:text-left text-xl sm:text-2xl">Organizations</p>
-                <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 sm:rounded-lg">
+                <p class="text-center sm:text-left text-xl sm:text-2xl reveal" use:inView={reveal} style="--reveal-delay: 140ms;">Organizations</p>
+                <div class="flex flex-row items-center sm:gap-4 bg-accent-gray sm:py-4 pl-4 sm:rounded-lg reveal" use:inView={reveal} style="--reveal-delay: 260ms;">
                     <img src="/about/triangle.png"
                          class="scale-50 md:scale-100"
                          alt="triangle"
@@ -59,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col sm:max-w-[60vw] sm:gap-2 shrink-0 px-8 sm:p-0">
+        <div class="flex flex-col sm:max-w-[60vw] sm:gap-2 shrink-0 px-8 sm:p-0 reveal" use:inView={reveal}>
             <div class="flex flex-row sm:flex-col grow gap-2">
                 <p class="font-bold text-2xl md:text-5xl sm:text-4xl md:leading-[0.7]">Hello, </p>
                 <p class="font-bold text-2xl md:text-5xl sm:text-4xl md:leading-[0.7]">I'm Kellen.</p>

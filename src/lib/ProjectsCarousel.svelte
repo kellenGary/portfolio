@@ -1,6 +1,8 @@
 <script>
     import { browser } from '$app/environment';
     import { onMount } from 'svelte';
+    import { inView } from '$lib/actions/inView.js';
+    const reveal = { threshold: 0.15, className: 'in-view' };
 
     // Default dimensions for all project
     const DEFAULT_DIMENSIONS = { width: 800, height: 450 };
@@ -166,9 +168,8 @@
     }
 
 </script>
-
 <div class="flex flex-col justify-around md:flex-row grow">
-    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-8 pt-24 md:pt-0">
+    <div class="flex flex-col justify-center md:min-w-1/3 md:max-w-1/3 p-8 pt-24 md:pt-0 grow reveal" use:inView={reveal}>
         <p class="font-bold text-4xl">{projects[selectedIndex].name}</p>
         <p class="font-semibold text-xl">{projects[selectedIndex].stack}</p>
         <p class="text-xl">{projects[selectedIndex].description}</p>
