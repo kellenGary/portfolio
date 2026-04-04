@@ -8,9 +8,5 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     allowedHosts: ["kellengary.com", "app.kellengary.com"]
-  },
-  build: {
-    outDir: 'build',
-    emptyOutDir: true
   }
 })
