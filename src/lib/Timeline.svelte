@@ -1,9 +1,6 @@
 <script>
   import { onMount } from "svelte";
   import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
 
   let container;
 
@@ -34,7 +31,10 @@
     },
   ];
 
-  onMount(() => {
+  onMount(async () => {
+    const { ScrollTrigger } = await import("gsap/dist/ScrollTrigger");
+    gsap.registerPlugin(ScrollTrigger);
+
     // Animate timeline entries
     const entries = gsap.utils.toArray(".timeline-entry");
     entries.forEach((entry, i) => {
@@ -80,7 +80,7 @@
   <!-- Section Header -->
   <div class="mb-24 text-center">
     <h2
-      class="text-6xl md:text-8xl font-black text-text-main/20 uppercase tracking-tighter"
+      class="text-5xl md:text-7xl lg:text-8xl font-black text-text-main/20 uppercase tracking-tighter"
     >
       Experience
     </h2>
@@ -90,12 +90,12 @@
   <div class="relative max-w-4xl mx-auto">
     <!-- Central Line -->
     <div
-      class="timeline-line absolute left-1/2 top-0 w-0.5 h-full bg-gradient-to-b from-accent-primary via-accent-secondary to-transparent origin-top"
+      class="timeline-line absolute left-4 md:left-1/2 top-0 w-0.5 h-full bg-gradient-to-b from-accent-primary via-accent-secondary to-transparent origin-top"
     ></div>
 
     <!-- Data Stream Particles (CSS Animation) -->
     <div
-      class="absolute left-1/2 top-0 w-1 h-full overflow-hidden pointer-events-none -translate-x-1/2"
+      class="absolute left-4 md:left-1/2 top-0 w-1 h-full overflow-hidden pointer-events-none -translate-x-1/2"
     >
       {#each Array(8) as _, i}
         <div
@@ -108,9 +108,9 @@
     <!-- Timeline Entries -->
     {#each experiences as exp, i}
       <div
-        class="timeline-entry relative flex {exp.side === 'left'
+        class="timeline-entry relative flex flex-col md:flex-row {exp.side === 'left'
           ? 'md:flex-row'
-          : 'md:flex-row-reverse'} items-center gap-8 mb-16"
+          : 'md:flex-row-reverse'} items-start md:items-center gap-8 mb-16 pl-12 md:pl-0"
       >
         <!-- Content Card -->
         <div
@@ -128,7 +128,7 @@
 
         <!-- Connection Node -->
         <div
-          class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent-primary border-4 border-background-color z-10"
+          class="flex absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-accent-primary border-4 border-background-color z-10"
         ></div>
 
         <!-- Spacer for opposite side -->

@@ -99,7 +99,7 @@
 >
   <div class="mb-20 px-4 md:px-20">
     <h2
-      class="text-6xl md:text-9xl font-black text-text-main/15 uppercase tracking-tighter text-right"
+      class="text-5xl md:text-9xl font-black text-text-main/15 uppercase tracking-tighter text-right"
     >
       Selected<br />Works
     </h2>

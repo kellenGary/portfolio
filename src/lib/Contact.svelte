@@ -1,14 +1,14 @@
 <script>
     import { onMount } from "svelte";
     import gsap from "gsap";
-    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-    gsap.registerPlugin(ScrollTrigger);
 
     let container;
 
     // Use GSAP to animate form appearance
-    onMount(() => {
+    onMount(async () => {
+        const { ScrollTrigger } = await import("gsap/dist/ScrollTrigger");
+        gsap.registerPlugin(ScrollTrigger);
+
         gsap.fromTo(
             ".contact-reveal",
             { y: 50, opacity: 0 },
@@ -32,7 +32,7 @@
 >
     <div class="max-w-4xl w-full flex flex-col gap-16">
         <h2
-            class="text-7xl md:text-9xl font-black text-center text-text-main uppercase tracking-tighter leading-none contact-reveal"
+            class="text-5xl md:text-7xl lg:text-9xl font-black text-center text-text-main uppercase tracking-tighter leading-none contact-reveal"
         >
             Let's<br />Work<br /><span class="text-accent-secondary"
                 >Together.</span

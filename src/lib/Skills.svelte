@@ -3,13 +3,13 @@
   import { Canvas } from "@threlte/core";
   import SkillsOrbs from "./components/3d/SkillsOrbs.svelte";
   import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
 
   let container;
 
-  onMount(() => {
+  onMount(async () => {
+    const { ScrollTrigger } = await import("gsap/dist/ScrollTrigger");
+    gsap.registerPlugin(ScrollTrigger);
+
     gsap.fromTo(
       ".skills-reveal",
       { opacity: 0, y: 50 },
@@ -34,7 +34,7 @@
   <!-- Section Header -->
   <div class="mb-16 skills-reveal">
     <h2
-      class="text-6xl md:text-8xl font-black text-text-main/10 uppercase tracking-tighter"
+      class="text-5xl md:text-7xl lg:text-8xl font-black text-text-main/10 uppercase tracking-tighter"
     >
       Tech<br /><span class="text-accent-primary/20">Stack</span>
     </h2>

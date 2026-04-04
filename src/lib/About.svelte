@@ -1,13 +1,13 @@
 <script>
     import { onMount } from "svelte";
     import gsap from "gsap";
-    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-    gsap.registerPlugin(ScrollTrigger);
 
     let container;
 
-    onMount(() => {
+    onMount(async () => {
+        const { ScrollTrigger } = await import("gsap/dist/ScrollTrigger");
+        gsap.registerPlugin(ScrollTrigger);
+
         const sections = gsap.utils.toArray(".about-section");
 
         // Section reveals
@@ -90,7 +90,7 @@
     <!-- Header -->
     <div class="mb-32 about-section relative z-10">
         <h2
-            class="text-6xl md:text-9xl font-black text-text-main/15 uppercase tracking-tighter"
+            class="text-5xl md:text-7xl lg:text-9xl font-black text-text-main/15 uppercase tracking-tighter"
         >
             About<br /><span class="text-accent-primary/30">Me</span>
         </h2>
@@ -102,7 +102,7 @@
     >
         <div class="md:col-start-2">
             <h3
-                class="text-4xl md:text-5xl font-bold mb-8 leading-tight text-text-main"
+                class="text-3xl md:text-5xl font-bold mb-8 leading-tight text-text-main"
             >
                 Engineering <span class="text-accent-primary">Scalable</span> and
                 <span class="text-accent-primary">Performant Systems</span>.

@@ -82,21 +82,27 @@
       endX = 120; endY = startY + (Math.random() * 60 - 30);
     }
 
-    // Determine correct visual angle taking viewport aspect ratio into account
-    const dy = (endY - startY) * window.innerHeight;
-    const dx = (endX - startX) * window.innerWidth;
+    // Determine correct visual angle taking parent container aspect ratio into account
+    const container = document.getElementById("landing");
+    const containerHeight = container ? container.clientHeight : window.innerHeight;
+    const containerWidth = container ? container.clientWidth : window.innerWidth;
+    
+    const dy = (endY - startY) * containerHeight;
+    const dx = (endX - startX) * containerWidth;
     const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
     gsap.fromTo(jet, 
       { 
-        x: `${startX}vw`, 
-        y: `${startY}vh`, 
+        left: `${startX}%`, 
+        top: `${startY}%`, 
         rotation: angle,
-        opacity: 0
+        opacity: 0,
+        xPercent: -50,
+        yPercent: -50
       },
       {
-        x: `${endX}vw`,
-        y: `${endY}vh`,
+        left: `${endX}%`,
+        top: `${endY}%`,
         opacity: Math.random() * 0.4 + 0.3, // Varying opacity
         duration: Math.random() * 15 + 15,  // Slow sweeping movement
         ease: "none",
@@ -139,7 +145,7 @@
   {/each}
   <!-- Main Content Bottom Left Aligned -->
   <div
-    class="relative z-20 mix-blend-difference w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-12 pb-12"
+    class="relative z-20 mix-blend-difference w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12 pb-32 md:pb-12"
   >
     <div class="flex flex-col gap-2">
       {#each titleLines as line, i}
