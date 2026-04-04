@@ -8,5 +8,8 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     allowedHosts: ["kellengary.com", "app.kellengary.com"]
+  },
+  ssr: {
+    noExternal: ['gsap']
   }
 })
