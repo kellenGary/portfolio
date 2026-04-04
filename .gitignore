@@ -14,6 +14,7 @@ dist-ssr
 
 build
 .svelte-kit
+.vercel
 
 # GitHub Actions runner
 ci/
