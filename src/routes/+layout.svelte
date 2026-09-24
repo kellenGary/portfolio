@@ -1,6 +1,7 @@
 <script>
   import "../app.css";
   import ScrollGraphics from "$lib/ScrollGraphics.svelte";
+  import Rainfall from "$lib/Rainfall.svelte";
   import { onMount } from "svelte";
   import Lenis from "lenis";
 
@@ -25,6 +26,7 @@
 </script>
 
 <ScrollGraphics />
+<Rainfall />
 
 <!-- Desktop grid pattern background over main scroll area -->
 <div class="fixed inset-0 pointer-events-none bg-grid-pattern opacity-40 mix-blend-overlay z-0"></div>
